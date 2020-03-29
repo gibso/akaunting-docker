@@ -9,10 +9,6 @@ services:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - app-data:/var/www/akaunting.test
     restart: unless-stopped
-    networks:
-      akaunting:
-        aliases:
-          - akaunting.test
 
   app:
     build: ./php
@@ -23,8 +19,6 @@ services:
     restart: unless-stopped
     environment:
       APP_DEBUG: "true"
-    networks:
-      - akaunting
 
   mysql:
     image: mysql:5
@@ -37,13 +31,8 @@ services:
       MYSQL_DATABASE: akaunting_db
       MYSQL_USER: akaunting_admin
       MYSQL_PASSWORD: akaunting_password
-    networks:
-      - akaunting
     command: --default-authentication-plugin=mysql_native_password
 
 volumes:
   app-data:
   db-data:
-
-networks:
-  akaunting:

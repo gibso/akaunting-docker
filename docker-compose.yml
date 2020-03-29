@@ -12,13 +12,9 @@ services:
 
   app:
     build: ./php
-    expose:
-      - 9000
     volumes:
       - app-data:/var/www/akaunting.test
     restart: unless-stopped
-    environment:
-      APP_DEBUG: "true"
 
   mysql:
     image: mysql:5

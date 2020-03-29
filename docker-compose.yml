@@ -7,13 +7,13 @@ services:
       - 8080:80
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
-      - app-data:/var/www/akaunting.test
+      - app-data:/var/www/akaunting
     restart: unless-stopped
 
   app:
     build: ./php
     volumes:
-      - app-data:/var/www/akaunting.test
+      - app-data:/var/www/akaunting
     restart: unless-stopped
 
   mysql:

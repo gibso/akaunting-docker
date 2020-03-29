@@ -10,7 +10,7 @@ services:
       - app-data:/var/www/akaunting
     restart: unless-stopped
 
-  app:
+  php:
     build: ./php
     volumes:
       - app-data:/var/www/akaunting

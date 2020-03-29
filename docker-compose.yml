@@ -2,12 +2,12 @@ version: '3.7'
 
 services:
   nginx:
-    image: nginx
+    build: ./nginx
     ports:
       - 8080:80
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
-      - .:/var/www/akaunting.test
+      - app-data:/var/www/akaunting.test
     restart: unless-stopped
     networks:
       akaunting:
@@ -16,11 +16,10 @@ services:
 
   app:
     build: ./php
-    user: "1000:1000"
     expose:
       - 9000
     volumes:
-      - .:/var/www/akaunting.test
+      - app-data:/var/www/akaunting.test
     restart: unless-stopped
     environment:
       APP_DEBUG: "true"
@@ -43,6 +42,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password
 
 volumes:
+  app-data:
   db-data:
 
 networks:

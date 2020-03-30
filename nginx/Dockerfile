@@ -9,5 +9,4 @@ RUN mkdir -p /var/www/akaunting
 RUN unzip Akaunting_${AKAUNTING_VERSION}-Stable.zip -d /var/www/akaunting
 RUN rm Akaunting_${AKAUNTING_VERSION}-Stable.zip
 
-RUN chmod -R 755 /var/www/akaunting
-
+RUN chmod -R 777 /var/www/akaunting

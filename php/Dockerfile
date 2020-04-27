@@ -17,3 +17,5 @@ RUN docker-php-ext-install \
     pcntl \
     pdo_mysql \
     zip
+
+WORKDIR /var/www/akaunting

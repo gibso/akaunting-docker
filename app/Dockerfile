@@ -1,6 +1,6 @@
 FROM nginx
 
-ENV AKAUNTING_VERSION 2.0.7
+ENV AKAUNTING_VERSION 2.0.10
 
 RUN apt-get update && apt-get install -y wget unzip
 
@@ -10,3 +10,5 @@ RUN unzip Akaunting_${AKAUNTING_VERSION}-Stable.zip -d /var/www/akaunting
 RUN rm Akaunting_${AKAUNTING_VERSION}-Stable.zip
 
 RUN chmod -R 777 /var/www/akaunting
+
+WORKDIR /var/www/akaunting

@@ -1,12 +1,12 @@
 version: '3.7'
 
 services:
-  nginx:
-    build: ./nginx
+  app:
+    build: ./app
     ports:
       - 8080:80
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx.conf:/etc/nginx/conf.d/akaunting.conf:ro
       - app-data:/var/www/akaunting
     restart: unless-stopped
 
